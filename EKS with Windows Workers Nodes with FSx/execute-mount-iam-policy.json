@@ -1,0 +1,18 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt",
+                "ssm:GetParameter"
+            ],
+            "Resource": [
+                "arn:aws:kms:<aws-region>:<aws-account>:key/alias/aws/ssm",
+                "arn:aws:ssm:<aws-region>:<aws-account>:parameter/<parameter-store-username>",
+                "arn:aws:ssm:<aws-region>:<aws-account>:parameter/<parameter-store-password>"
+            ]
+        }
+    ]
+}
