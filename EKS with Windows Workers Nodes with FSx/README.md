@@ -3,7 +3,9 @@
 Amazon FSx for Windows File Server will need to be mounted as Windows via Microsoft SMB Protocol for usage. This requires Active Directory Domain Services to be available. 
 
 **Deployment architecture**
-![alt text](images/arch.png "Architecture")
+
+![alt text](arch.png "Architecture")
+
 **Following are the steps** 
 
 1. Provision a shared services VPC. Ensure the VPC IP Active Directory Domain Services in a shared services VPC CIDR range does not conflict with the other VPC's where the shared services is to be made available. 
