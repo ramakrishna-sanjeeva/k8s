@@ -8,7 +8,7 @@ Amazon FSx for Windows File Server will need to be mounted as Windows via Micros
 
 **Following are the steps** 
 
-1. Provision a shared services VPC. Ensure the VPC IP Active Directory Domain Services in a shared services VPC CIDR range does not conflict with the other VPC's where the shared services is to be made available. 
+1. <strong>If you plan to deploy AWS Managed AD as part of the EKS VPC, skip this step.</strong> Provision a shared services VPC. Ensure the VPC IP Active Directory Domain Services in a shared services VPC CIDR range does not conflict with the other VPC's where the shared services is to be made available. 
 ![alt text](images/VPC-Wizard-1.png "VPC Wizard -1")
 	
 ![alt text](images/VPC-Wizard-2.png " VPC Wizard -2")
@@ -19,7 +19,7 @@ Amazon FSx for Windows File Server will need to be mounted as Windows via Micros
 	Directory NetBIOS name: CORP
 	Admin password: < password >
 	Confirm password: < password >
-	VPC: < Select the shared services VPC >
+	VPC: < Select the shared services VPC/EKS VPC >
 	Subnets: < Select the private subnets >
 	
 ![alt text](images/DirectoryService-Wizard-1.png "DirectoryService-Wizard-1")
@@ -40,7 +40,7 @@ Amazon FSx for Windows File Server will need to be mounted as Windows via Micros
 
 Refer to https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups_create_user.html 
 
-5. Establish network connectivity between the shared services VPC and the VPC where EKS workloads and FSx Windows File Server are provisioned using either VPC Peering/AWS Transit Gateway.  For VPC peering, refer to https://networking.workshop.aws/intermediate/6-vpc-peering.html 
+5. <strong>If you plan to deploy AWS Managed AD as part of the EKS VPC, skip this step.</strong> Establish network connectivity between the shared services VPC and the VPC where EKS workloads and FSx Windows File Server are provisioned using either VPC Peering/AWS Transit Gateway.  For VPC peering, refer to https://networking.workshop.aws/intermediate/6-vpc-peering.html 
 
 6. Provision FSx Windows File Server by specifying the AWS Managed Directory created in above step. Ensure the security group associated with the ENI's have the ingress rules allowing traffic from VPC or required subnets. 
 
