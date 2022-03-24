@@ -4,6 +4,8 @@ Amazon FSx for Windows File Server will need to be mounted as Windows via Micros
 
 **Deployment architecture**
 
+![alt text](arch.png "Architecture")
+
 **Following are the steps** 
 1. Provision Active Directory Domain Services in a shared services VPC. 
 
