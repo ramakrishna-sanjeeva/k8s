@@ -13,8 +13,8 @@
         },
         "inputs": {
           "runCommand": [
-            "$username = (Get-SSMParameterValue -Name domainUserName).Parameters[0].Value",
-            "$password = (Get-SSMParameterValue -Name domainUserPassword -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -asPlainText -Force",
+            "$username = (Get-SSMParameterValue -Name <project>/fsx/domainUserName).Parameters[0].Value",
+            "$password = (Get-SSMParameterValue -Name <project>/fsx/domainUserPassword -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -asPlainText -Force",
             "$credential = New-Object System.Management.Automation.PSCredential($username,$password)",
             "New-SmbGlobalMapping -RemotePath '\\\\<FSx DNS name>\\share' -Credential $credential -LocalPath G: -RequirePrivacy $true -ErrorAction Stop"
           ]
